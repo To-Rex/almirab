@@ -1,6 +1,7 @@
 import { useLanguage } from '@/context/LanguageContext';
 import { useTranslations } from '@/utils/translations';
 import { motion } from 'framer-motion';
+import { Link } from 'react-router-dom';
 
 export const Footer: React.FC = () => {
   const { language } = useLanguage();
@@ -36,6 +37,8 @@ export const Footer: React.FC = () => {
     visible: { scale: 1, opacity: 1 },
     hover: { scale: 1.1, transition: { duration: 0.2 } }
   };
+
+  const MotionLink = motion(Link);
 
   return (
     <motion.footer
@@ -192,22 +195,22 @@ export const Footer: React.FC = () => {
             viewport={{ once: true }}
             transition={{ delayChildren: 1, staggerChildren: 0.1 }}
           >
-            <motion.a
-              href="#"
+            <MotionLink
+              to="/privacy-policy"
               className="text-gray-400 hover:text-white transition-colors text-sm"
               variants={linkVariants}
               whileHover="hover"
             >
               Privacy Policy
-            </motion.a>
-            <motion.a
-              href="#"
+            </MotionLink>
+            <MotionLink
+              to="/terms-of-service"
               className="text-gray-400 hover:text-white transition-colors text-sm"
               variants={linkVariants}
               whileHover="hover"
             >
               Terms of Service
-            </motion.a>
+            </MotionLink>
           </motion.div>
         </motion.div>
       </div>
