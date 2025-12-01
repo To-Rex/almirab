@@ -18,7 +18,7 @@ export const translations = {
         { title: "Tajriba", description: "10+ yil IT industriyasida faoliyat" },
         { title: "Mutaxassislar", description: "Sertifikatsiyalangan va tajribali mutaxassislar" },
         { title: "Inovatsiya", description: "Eng yangi texnologiyalardan foydalanish" },
-        { title: "Sifat", description: "100% sahodatalari bilan harakat qilamiz" },
+        { title: "Sifat", description: "100% kafolatlari bilan harakat qilamiz" },
       ],
     },
     services: {
@@ -42,8 +42,8 @@ export const translations = {
           description: "Texnologik strategiya va yechimlar bo'yicha konsultatsiya",
         },
         {
-          title: "IT Poddstrika",
-          description: "24/7 texnik yordamni va poddstrikani taqdim etamiz",
+          title: "IT Qo'llab-quvvatlash",
+          description: "24/7 texnik yordamni va qo'llab-quvvatlashni taqdim etamiz",
         },
         {
           title: "Data Analytics",
@@ -61,7 +61,7 @@ export const translations = {
           image: "https://images.unsplash.com/photo-1556742049-0cfed4f6a45d?w=800&h=600&fit=crop",
         },
         {
-          name: "CRM Sistema",
+          name: "CRM Tizimi",
           description: "Kompaniyalar uchun qo'l keluvchi CRM yechimi",
           image: "https://images.unsplash.com/photo-1552664730-d307ca884978?w=800&h=600&fit=crop",
         },
@@ -79,8 +79,8 @@ export const translations = {
     },
     contact: {
       title: "Biz bilan bog'lanish",
-      description: "Loyihangizni amalga oshirishga tayyor. Biz sizni kutishni intiqilgan bilan kutamiz.",
-      cta: "Shunoshuv olish",
+      description: "Loyihangizni amalga oshirishga tayyor. Biz sizni intiqilgan bilan kutamiz.",
+      cta: "Konsultatsiya olish",
     },
     footer: {
       company: "Almirab IT",
