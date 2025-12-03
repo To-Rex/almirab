@@ -87,7 +87,7 @@ export const Contact: React.FC = () => {
             variants={infoVariants}
             transition={{ type: "spring", damping: 12 }}
           >
-            <span className="font-semibold">{t.footer.email}:</span> {t.footer.email}
+            <span className="font-semibold">{t.footer.emailLabel}:</span> {t.footer.email}
           </motion.p>
           <motion.p
             className="text-almirab-light"

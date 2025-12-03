@@ -32,8 +32,8 @@ export const translations = {
       contactInformation: {
         title: "Bog'lanish Ma'lumotlari",
         content: "Maxfiylik siyosati bo'yicha savollaringiz bo'lsa, quyidagi ma'lumotlar orqali biz bilan bog'laning:",
-        email: "Email: info@almirab.uz",
-        phone: "Telefon: +998 91 691 00 36"
+        email: "Email: almirabuz@gmail.com",
+        phone: "Telefon: +998 91 205 10 90"
       },
       lastUpdated: "Oxirgi yangilanish: 2024-yil 1-dekabr"
     },
@@ -71,19 +71,19 @@ export const translations = {
       contactInformation: {
         title: "Bog'lanish Ma'lumotlari",
         content: "Ushbu Xizmat Ko'rsatish Shartlari bo'yicha savollaringiz bo'lsa, biz bilan bog'laning:",
-        email: "Email: info@almirab.uz",
-        phone: "Telefon: +998 91 691 00 36"
+        email: "Email: almirabuz@gmail.com",
+        phone: "Telefon: +998 91 205 10 90"
       },
       lastUpdated: "Oxirgi yangilanish: 2024-yil 1-dekabr"
     },
     hero: {
       title: "Zamonaviy IT Yechimlarining Peshqadami",
-      subtitle: "Almirab IT siz uchun eng murakkab texnologik muammolarni yechimlaymiz. Innovatsiya, sifat va ishonch bilan kelajakni quramiz.",
+      subtitle: "Almirab siz uchun eng murakkab texnologik muammolarni yechimlaymiz. Innovatsiya, sifat va ishonch bilan kelajakni quramiz.",
       cta: "Biz bilan bog'lanish",
     },
     about: {
       title: "Biz haqimizda",
-      description: "Almirab IT - bu yuqori sifatli IT xizmatlarni taqdim etuvchi kompaniya. Biz har bir loyihani o'ziga xos e'tibor bilan qarab, eng yaxshi natijani kafolatlaymiz.",
+      description: "Almirab - bu yuqori sifatli IT xizmatlarni taqdim etuvchi kompaniya. Biz har bir loyihani o'ziga xos e'tibor bilan qarab, eng yaxshi natijani kafolatlaymiz.",
       strengths: [
         { title: "Tajriba", description: "10+ yil IT industriyasida faoliyat" },
         { title: "Mutaxassislar", description: "Sertifikatsiyalangan va tajribali mutaxassislar" },
@@ -153,11 +153,12 @@ export const translations = {
       cta: "Konsultatsiya olish",
     },
     footer: {
-      company: "Almirab IT",
+      company: "Almirab",
       rights: "Barcha huquqlar himoyalangan",
       contact: "Bog'lanish",
-      email: "info@almirab.uz",
-      phone: "+998 91 691 00 36",
+      emailLabel: "Email",
+      email: "almirabuz@gmail.com",
+      phone: "+998 91 205 10 90",
     },
   },
   ru: {
@@ -239,12 +240,12 @@ export const translations = {
     },
     hero: {
       title: "Передовые IT решения для вашего бизнеса",
-      subtitle: "Almirab IT решает самые сложные технологические задачи. Мы строим будущее с инновациями, качеством и надежностью.",
+      subtitle: "Almirab решает самые сложные технологические задачи. Мы строим будущее с инновациями, качеством и надежностью.",
       cta: "Свяжитесь с нами",
     },
     about: {
       title: "О компании",
-      description: "Almirab IT - это компания, предоставляющая высококачественные IT услуги. Мы подходим к каждому проекту с особой тщательностью и гарантируем лучший результат.",
+      description: "Almirab - это компания, предоставляющая высококачественные IT услуги. Мы подходим к каждому проекту с особой тщательностью и гарантируем лучший результат.",
       strengths: [
         { title: "Опыт", description: "Более 10 лет деятельности в IT индустрии" },
         { title: "Специалисты", description: "Сертифицированные и опытные профессионалы" },
@@ -314,9 +315,10 @@ export const translations = {
       cta: "Получить консультацию",
     },
     footer: {
-      company: "Almirab IT",
+      company: "Almirab",
       rights: "Все права защищены",
       contact: "Контакты",
+      emailLabel: "Email",
       email: "info@almirab.ru",
       phone: "+7 (999) 123-45-67",
     },
@@ -400,12 +402,12 @@ export const translations = {
     },
     hero: {
       title: "Leading IT Solutions for Your Business",
-      subtitle: "Almirab IT solves the most complex technological challenges. We build the future with innovation, quality, and reliability.",
+      subtitle: "Almirab solves the most complex technological challenges. We build the future with innovation, quality, and reliability.",
       cta: "Get in Touch",
     },
     about: {
       title: "About Us",
-      description: "Almirab IT is a company providing high-quality IT services. We approach each project with special care and guarantee the best results.",
+      description: "Almirab is a company providing high-quality IT services. We approach each project with special care and guarantee the best results.",
       strengths: [
         { title: "Experience", description: "10+ years of experience in IT industry" },
         { title: "Specialists", description: "Certified and experienced professionals" },
@@ -475,9 +477,10 @@ export const translations = {
       cta: "Get Consultation",
     },
     footer: {
-      company: "Almirab IT",
+      company: "Almirab",
       rights: "All rights reserved",
       contact: "Contact",
+      emailLabel: "Email",
       email: "info@almirab.com",
       phone: "+1 (555) 123-4567",
     },

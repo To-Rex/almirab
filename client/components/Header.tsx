@@ -62,7 +62,7 @@ export const Header: React.FC = () => {
           whileHover={{ scale: 1.05 }}
         >
           <a href="#home" className="text-xl font-bold text-almirab-blue">
-            almirab IT
+            almirab
           </a>
         </motion.div>
 
