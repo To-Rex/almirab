@@ -8,6 +8,12 @@ import Index from "./pages/Index";
 import NotFound from "./pages/NotFound";
 import PrivacyPolicy from "./pages/PrivacyPolicy";
 import TermsOfService from "./pages/TermsOfService";
+import AdminLayout from "./components/AdminLayout";
+import AdminDashboard from "./pages/AdminDashboard";
+import AdminPortfolio from "./pages/AdminPortfolio";
+import AdminTestimonials from "./pages/AdminTestimonials";
+import AdminUsers from "./pages/AdminUsers";
+import AdminSettings from "./pages/AdminSettings";
 
 const queryClient = new QueryClient();
 
@@ -21,6 +27,13 @@ export default function App() {
           <BrowserRouter>
             <Routes>
               <Route path="/" element={<Index />} />
+              <Route path="/admin" element={<AdminLayout />}>
+                <Route index element={<AdminDashboard />} />
+                <Route path="portfolio" element={<AdminPortfolio />} />
+                <Route path="testimonials" element={<AdminTestimonials />} />
+                <Route path="users" element={<AdminUsers />} />
+                <Route path="settings" element={<AdminSettings />} />
+              </Route>
               <Route path="/privacy-policy" element={<PrivacyPolicy />} />
               <Route path="/terms-of-service" element={<TermsOfService />} />
               {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}

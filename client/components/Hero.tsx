@@ -1,6 +1,8 @@
 import { useLanguage } from '@/context/LanguageContext';
 import { useTranslations } from '@/utils/translations';
 import { motion } from 'framer-motion';
+import { Monitor } from 'lucide-react';
+import { FaAndroid, FaApple } from 'react-icons/fa';
 
 export const Hero: React.FC = () => {
   const { language } = useLanguage();
@@ -45,7 +47,7 @@ export const Hero: React.FC = () => {
   return (
     <motion.section
       id="home"
-      className="w-full bg-white pt-20 pb-32 px-4 sm:px-6 lg:px-8"
+      className="relative w-full bg-white pt-20 pb-32 px-4 sm:px-6 lg:px-8"
       initial="hidden"
       animate="visible"
       variants={containerVariants}
@@ -86,13 +88,12 @@ export const Hero: React.FC = () => {
 
           {/* Right decorative element */}
           <motion.div
-            className="hidden lg:flex items-center justify-center"
+            className="relative hidden lg:flex items-center justify-center"
             variants={shapeVariants}
             transition={{ delay: 0.8, type: "spring", damping: 8 }}
             whileHover="hover"
           >
             <div className="relative w-64 h-64">
-              {/* Geometric shapes for premium look */}
               <motion.div
                 className="absolute inset-0 bg-almirab-blue rounded-3xl transform -rotate-12 opacity-10"
                 animate={{ rotate: [0, 5, -5, 0] }}
@@ -109,6 +110,27 @@ export const Hero: React.FC = () => {
                 transition={{ duration: 4, repeat: Infinity, ease: "easeInOut", delay: 2 }}
               ></motion.div>
             </div>
+            <motion.div
+              className="absolute top-0 left-0"
+              animate={{ y: [0, -10, 0] }}
+              transition={{ duration: 2, repeat: Infinity, ease: "easeInOut" }}
+            >
+              <FaAndroid size={48} className="text-almirab-blue" />
+            </motion.div>
+            <motion.div
+              className="absolute bottom-0 right-0"
+              animate={{ y: [0, -10, 0] }}
+              transition={{ duration: 2, repeat: Infinity, ease: "easeInOut", delay: 0.5 }}
+            >
+              <FaApple size={48} className="text-almirab-teal" />
+            </motion.div>
+            <motion.div
+              className="absolute top-0 right-0"
+              animate={{ y: [0, -10, 0] }}
+              transition={{ duration: 2, repeat: Infinity, ease: "easeInOut", delay: 1 }}
+            >
+              <Monitor size={48} className="text-almirab-accent" />
+            </motion.div>
           </motion.div>
         </div>
       </div>
