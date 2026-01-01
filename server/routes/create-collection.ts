@@ -1,23 +1,31 @@
 import { Client, Databases, Permission, Role, ID, Storage } from 'node-appwrite';
 
-const client = new Client();
-
-client
-  .setEndpoint(process.env.APPWRITE_ENDPOINT!)
-  .setProject(process.env.APPWRITE_PROJECT_ID!)
-  .setKey(process.env.APPWRITE_API_KEY!);
-
-const databases = new Databases(client);
-const storage = new Storage(client);
-
 const databaseId = process.env.APPWRITE_DATABASE_ID!;
 const bucketId = process.env.APPWRITE_BUCKET_ID!;
+
+function getClient() {
+  const client = new Client();
+  client
+    .setEndpoint(process.env.APPWRITE_ENDPOINT!)
+    .setProject(process.env.APPWRITE_PROJECT_ID!)
+    .setKey(process.env.APPWRITE_API_KEY!);
+  return client;
+}
+
+function getDatabases() {
+  return new Databases(getClient());
+}
+
+function getStorage() {
+  return new Storage(getClient());
+}
 
 export const handleCreateCollection = async (req: any, res: any) => {
   try {
     const { name, collectionId } = req.body;
     const collectionName = name || 'testimonials';
     const finalCollectionId = collectionId || ID.unique();
+    const databases = getDatabases();
 
     // Check if collection already exists
     try {
@@ -68,6 +76,7 @@ export const handleCreateCollection = async (req: any, res: any) => {
 export const handleGetPortfolio = async (req: any, res: any) => {
   try {
     const { collectionId } = req.params;
+    const databases = getDatabases();
     const response = await databases.listDocuments(databaseId, collectionId);
     res.json(response);
   } catch (error: any) {
@@ -78,6 +87,7 @@ export const handleGetPortfolio = async (req: any, res: any) => {
 export const handleCreatePortfolio = async (req: any, res: any) => {
   try {
     const { collectionId, data } = req.body;
+    const databases = getDatabases();
     const response = await databases.createDocument(databaseId, collectionId, ID.unique(), data);
     res.json(response);
   } catch (error: any) {
@@ -88,6 +98,7 @@ export const handleCreatePortfolio = async (req: any, res: any) => {
 export const handleUpdatePortfolio = async (req: any, res: any) => {
   try {
     const { collectionId, documentId, data } = req.body;
+    const databases = getDatabases();
     const response = await databases.updateDocument(databaseId, collectionId, documentId, data);
     res.json(response);
   } catch (error: any) {
@@ -98,6 +109,7 @@ export const handleUpdatePortfolio = async (req: any, res: any) => {
 export const handleDeletePortfolio = async (req: any, res: any) => {
   try {
     const { collectionId, documentId } = req.params;
+    const databases = getDatabases();
     const response = await databases.deleteDocument(databaseId, collectionId, documentId);
     res.json(response);
   } catch (error: any) {
@@ -116,6 +128,7 @@ export const handleUploadFile = async (req: any, res: any) => {
     // Create a File object from the buffer for Appwrite
     const fileObject = new File([file.buffer], file.originalname, { type: file.mimetype });
 
+    const storage = getStorage();
     const response = await storage.createFile(bucketId, ID.unique(), fileObject);
     res.json(response);
   } catch (error: any) {
@@ -126,6 +139,7 @@ export const handleUploadFile = async (req: any, res: any) => {
 export const handleDeleteFile = async (req: any, res: any) => {
   try {
     const { fileId } = req.params;
+    const storage = getStorage();
     const response = await storage.deleteFile(bucketId, fileId);
     res.json(response);
   } catch (error: any) {
@@ -136,6 +150,7 @@ export const handleDeleteFile = async (req: any, res: any) => {
 export const handleGetImage = async (req: any, res: any) => {
   try {
     const { fileId } = req.params;
+    const storage = getStorage();
     const file = await storage.getFileView(bucketId, fileId);
     // Since file is a URL, we need to fetch it and pipe to response
     const response = await fetch(file.toString());
