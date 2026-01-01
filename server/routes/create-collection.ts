@@ -3,14 +3,15 @@ import { Client, Databases, Permission, Role, ID, Storage } from 'node-appwrite'
 const client = new Client();
 
 client
-  .setEndpoint(process.env.VITE_APPWRITE_ENDPOINT!)
-  .setProject(process.env.VITE_APPWRITE_PROJECT_ID!)
+  .setEndpoint(process.env.APPWRITE_ENDPOINT!)
+  .setProject(process.env.APPWRITE_PROJECT_ID!)
   .setKey(process.env.APPWRITE_API_KEY!);
 
 const databases = new Databases(client);
 const storage = new Storage(client);
 
-const databaseId = '6951038a0011579f3d8c';
+const databaseId = process.env.APPWRITE_DATABASE_ID!;
+const bucketId = process.env.APPWRITE_BUCKET_ID!;
 
 export const handleCreateCollection = async (req: any, res: any) => {
   try {
@@ -115,7 +116,7 @@ export const handleUploadFile = async (req: any, res: any) => {
     // Create a File object from the buffer for Appwrite
     const fileObject = new File([file.buffer], file.originalname, { type: file.mimetype });
 
-    const response = await storage.createFile('69510ffe003501270011', ID.unique(), fileObject);
+    const response = await storage.createFile(bucketId, ID.unique(), fileObject);
     res.json(response);
   } catch (error: any) {
     res.status(500).json({ error: error.message });
@@ -125,7 +126,7 @@ export const handleUploadFile = async (req: any, res: any) => {
 export const handleDeleteFile = async (req: any, res: any) => {
   try {
     const { fileId } = req.params;
-    const response = await storage.deleteFile('69510ffe003501270011', fileId);
+    const response = await storage.deleteFile(bucketId, fileId);
     res.json(response);
   } catch (error: any) {
     res.status(500).json({ error: error.message });
@@ -135,7 +136,7 @@ export const handleDeleteFile = async (req: any, res: any) => {
 export const handleGetImage = async (req: any, res: any) => {
   try {
     const { fileId } = req.params;
-    const file = await storage.getFileView('69510ffe003501270011', fileId);
+    const file = await storage.getFileView(bucketId, fileId);
     // Since file is a URL, we need to fetch it and pipe to response
     const response = await fetch(file.toString());
     if (!response.ok) {
