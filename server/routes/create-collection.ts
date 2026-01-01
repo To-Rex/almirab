@@ -131,3 +131,20 @@ export const handleDeleteFile = async (req: any, res: any) => {
     res.status(500).json({ error: error.message });
   }
 };
+
+export const handleGetImage = async (req: any, res: any) => {
+  try {
+    const { fileId } = req.params;
+    const file = await storage.getFileView('69510ffe003501270011', fileId);
+    // Since file is a URL, we need to fetch it and pipe to response
+    const response = await fetch(file.toString());
+    if (!response.ok) {
+      throw new Error('Failed to fetch image');
+    }
+    const buffer = await response.arrayBuffer();
+    res.set('Content-Type', response.headers.get('content-type') || 'image/jpeg');
+    res.send(Buffer.from(buffer));
+  } catch (error: any) {
+    res.status(500).json({ error: error.message });
+  }
+};

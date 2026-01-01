@@ -9,7 +9,7 @@ import { Dialog, DialogContent, DialogHeader, DialogTitle, DialogTrigger } from 
 import { Label } from '@/components/ui/label';
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from '@/components/ui/select';
 import { getDocuments, createDocument, updateDocument, deleteDocument } from '@/lib/database';
-import { uploadFile, getFilePreview, deleteFile } from '@/lib/storage';
+import { uploadFile, deleteFile } from '@/lib/storage';
 import { Plus, Edit, Trash2, Eye } from 'lucide-react';
 
 interface PortfolioItem extends Models.Document {
@@ -62,7 +62,7 @@ export default function AdminPortfolio() {
       // Add image URLs for items with images and parse technologies
       const itemsWithImages = items.map(item => ({
         ...item,
-        imageUrl: item.imageId ? getFilePreview(item.imageId) : undefined,
+        imageUrl: item.imageId ? `/api/image/${item.imageId}` : undefined,
         technologies: typeof item.technologies === 'string' ? JSON.parse(item.technologies) : item.technologies || []
       }));
       setPortfolioItems(itemsWithImages);

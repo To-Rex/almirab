@@ -3,7 +3,7 @@ import express from "express";
 import cors from "cors";
 import multer from "multer";
 import { handleDemo } from "./routes/demo";
-import { handleCreateCollection, handleGetPortfolio, handleCreatePortfolio, handleUpdatePortfolio, handleDeletePortfolio, handleUploadFile, handleDeleteFile } from "./routes/create-collection";
+import { handleCreateCollection, handleGetPortfolio, handleCreatePortfolio, handleUpdatePortfolio, handleDeletePortfolio, handleUploadFile, handleDeleteFile, handleGetImage } from "./routes/create-collection";
 
 export function createServer() {
   const app = express();
@@ -34,6 +34,7 @@ export function createServer() {
   // Storage API routes
   app.post("/api/upload", upload.single('file'), handleUploadFile);
   app.delete("/api/files/:fileId", handleDeleteFile);
+  app.get("/api/image/:fileId", handleGetImage);
 
   return app;
 }
